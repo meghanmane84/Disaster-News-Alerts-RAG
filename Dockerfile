@@ -4,7 +4,6 @@ WORKDIR /app
 
 RUN pip install -U pathway
 RUN pip install -U requests
-RUN pip install -U bs4
 RUN pip install -U datetime
 RUN pip install -U openai
 RUN pip install -U python-dotenv
