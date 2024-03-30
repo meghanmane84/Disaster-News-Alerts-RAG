@@ -3,7 +3,7 @@
 Quickly summarize the content and get the information you need regarding disasters happening in different parts of the world. 
 ## Demo
 
-See how the tool works: in the demo video
+See how the tool works: See a demo of the project in action [Disaster-News-Alert-System](./disasternews_demo.mp4).
 
 As you can see the LLM App enables AI-powered summarization of multiple news regarding the Disaster News happening in real time using google engine.
 
