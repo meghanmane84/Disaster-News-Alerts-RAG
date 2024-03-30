@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  get_news:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command: python getNews.py
+    volumes:
+      - ./DisasterNews:/app/DisasterNews
+    env_file:
+      - .env
+
+  chatmaster:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command: python main.py
+    volumes:
+      - ./DisasterNews:/app/DisasterNews
+    env_file:
+      - .env
+    ports:
+      - 8080:8080
+    networks:
+      - app_network
+  
+  ui:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command: streamlit run ui.py
+    env_file:
+      - .env
+    ports:
+      - 8501:8501
+    volumes:
+      - ./ui.py:/app/ui.py
+    networks:
+      - app_network
+    depends_on:
+      - chatmaster
+    
+
+networks:
+  app_network:
+    driver: bridge
